@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Estimator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Estimator for Wall Advertising</h1>
+        <form id="budgetForm">
+            <!-- Fixed Budget Question -->
+            <label for="fixedBudget">Do You Have a Fixed Budget in Mind?</label><br>
+            <input type="radio" id="yes" name="fixedBudget" value="Yes" required> Yes
+            <input type="radio" id="no" name="fixedBudget" value="No"> No<br><br>
+
+            <!-- Budget Field -->
+            <label for="budget" id="budgetLabel" style="display: none;">Enter Your Budget (in Rs.)</label>
+            <input type="number" id="budget" name="budget" style="display: none;"><br><br>
+
+            <!-- Tentative Budget -->
+            <label for="tentativeBudget" id="tentativeLabel" style="display: none;">Enter Tentative Budget (in Rs.)</label>
+            <input type="number" id="tentativeBudget" name="tentativeBudget" style="display: none;"><br><br>
+
+            <!-- Advertising Approach -->
+            <label for="approach">Choose your advertising approach:</label><br>
+            <select id="approach" name="approach">
+                <option value="Adwallz">Adwallz - Digital Wall Painting</option>
+                <option value="Madwallz">Madwallz - Artistic Wall Painting</option>
+            </select><br><br>
+
+            <!-- Region Selection -->
+            <label for="region">Region:</label><br>
+            <select id="region" name="region">
+                <option value="North">North</option>
+                <option value="South">South</option>
+                <option value="East">East</option>
+                <option value="West">West</option>
+            </select><br><br>
+
+            <!-- City Tier Selection -->
+            <label for="tier">City Tier:</label><br>
+            <select id="tier" name="tier">
+                <option value="Metro">Metro</option>
+                <option value="Tier 1">Tier 1</option>
+                <option value="Tier 2">Tier 2</option>
+                <option value="Tier 3">Tier 3</option>
+            </select><br><br>
+
+            <!-- Campaign Environment -->
+            <label for="environment">Choose your campaign environment:</label><br>
+            <select id="environment" name="environment">
+                <option value="Urban">Urban</option>
+                <option value="Developing">Developing</option>
+                <option value="Rural">Rural</option>
+            </select><br><br>
+
+            <!-- Wall Type Selection -->
+            <label for="wallType">What Type of Wall Best Fits Your Campaign?</label><br>
+            <select id="wallType" name="wallType">
+                <option value="Premium Walls">Premium Walls</option>
+                <option value="High Rise Walls">High Rise Walls</option>
+                <option value="Low Rise Walls">Low Rise Walls</option>
+                <option value="Strategic Wall Mix">Strategic Wall Mix</option>
+            </select><br><br>
+
+            <!-- Wall Size Preference -->
+            <label for="wallSize">Do You Have a Preferred Wall Size?</label><br>
+            <input type="radio" id="wallSizeYes" name="wallSize" value="Yes"> Yes
+            <input type="radio" id="wallSizeNo" name="wallSize" value="No" checked> No<br><br>
+
+            <!-- Wall Size Input -->
+            <label for="sizeInput" id="sizeInputLabel" style="display: none;">Enter Wall Size (sq.ft):</label>
+            <input type="number" id="sizeInput" name="sizeInput" style="display: none;"><br><br>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="calculateWalls()">Calculate</button>
+        </form>
+
+        <!-- Display the number of walls -->
+        <div id="result" style="display: none;">
+            <h3>Estimated Number of Walls: <span id="wallsCount"></span></h3>
+        </div>
+
+        <!-- PDF Download -->
+        <button type="button" id="downloadButton" style="display: none;" onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
